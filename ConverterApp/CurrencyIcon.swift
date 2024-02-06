@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct CurrencyIcon: View {
+    let imageIcon : ImageResource
+    let textIcon: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .bottom ){ //vstack alta oluşturmak yerine parantez içinden yaptık.
+            Image(imageIcon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                Text(textIcon)
+                    .padding(3)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity)
+                    .background(.brown .opacity(0.75))
+        }
+        .padding(3)
+        .frame(width: 100,height: 100)
+        .background(.brown)
+        .clipShape(.rect(cornerRadius: 25))
+        
     }
 }
 
 #Preview {
-    CurrencyIcon()
+    CurrencyIcon(imageIcon: .goldpiece, textIcon: "Gold Piece")
 }
